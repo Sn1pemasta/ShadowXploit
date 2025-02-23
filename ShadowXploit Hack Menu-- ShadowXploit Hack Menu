@@ -1,0 +1,153 @@
+-- ShadowXploit Hack Menu
+-- Disclaimer: This hack menu is intended for educational and entertainment purposes only.
+-- Using or distributing hacks, cheats, or exploits in any game, including Roblox, is against the terms of service of the game and can lead to penalties, including account bans.
+-- The creators of ShadowXploit do not condone or encourage the use of these exploits in any online games. Use at your own risk.
+
+local ShadowXploit = {}
+
+-- Teleportation functions
+function ShadowXploit:TeleportToPlayer(targetPlayer)
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+end
+
+function ShadowXploit:TeleportToCoordinates(x, y, z)
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(x, y, z)
+end
+
+function ShadowXploit:RandomTeleport()
+    local player = game.Players.LocalPlayer
+    local randomX = math.random(-1000, 1000)
+    local randomY = math.random(50, 200)
+    local randomZ = math.random(-1000, 1000)
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(randomX, randomY, randomZ)
+end
+
+-- Player manipulation functions
+function ShadowXploit:FreezePlayer(targetPlayer)
+    targetPlayer.Character.HumanoidRootPart.Anchored = true
+end
+
+function ShadowXploit:WalkOnAir()
+    local player = game.Players.LocalPlayer
+    player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+end
+
+function ShadowXploit:AntiGravity()
+    game.Workspace.Gravity = 10
+end
+
+function ShadowXploit:ClonePlayer(targetPlayer)
+    local clone = targetPlayer.Character:Clone()
+    clone.Parent = game.Workspace
+end
+
+-- Visual modification functions
+function ShadowXploit:ESP()
+    -- Implement ESP functionality here
+end
+
+function ShadowXploit:GlowMode(color)
+    local player = game.Players.LocalPlayer
+    local glow = Instance.new("PointLight", player.Character.HumanoidRootPart)
+    glow.Color = color
+end
+
+function ShadowXploit:Wallhack()
+    -- Implement Wallhack functionality here
+end
+
+function ShadowXploit:PlayerSize(targetPlayer, scale)
+    targetPlayer.Character.HumanoidRootPart.Size = targetPlayer.Character.HumanoidRootPart.Size * scale
+end
+
+-- Script injection functions
+function ShadowXploit:CustomScriptExecutor(scriptCode)
+    loadstring(scriptCode)()
+end
+
+function ShadowXploit:NoClip()
+    local player = game.Players.LocalPlayer
+    player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+end
+
+function ShadowXploit:Speedhack(speed)
+    local player = game.Players.LocalPlayer
+    player.Character.Humanoid.WalkSpeed = speed
+end
+
+function ShadowXploit:SuperJump(power)
+    local player = game.Players.LocalPlayer
+    player.Character.Humanoid.JumpPower = power
+end
+
+-- Environmental change functions
+function ShadowXploit:WeatherControl(weatherType)
+    -- Implement Weather Control functionality here
+end
+
+function ShadowXploit:TimeControl(timeOfDay)
+    game.Lighting.TimeOfDay = timeOfDay
+end
+
+function ShadowXploit:ItemDuplication(item)
+    local clone = item:Clone()
+    clone.Parent = game.Workspace
+end
+
+-- Combat ability functions
+function ShadowXploit:GodMode()
+    local player = game.Players.LocalPlayer
+    player.Character.Humanoid.MaxHealth = math.huge
+    player.Character.Humanoid.Health = math.huge
+end
+
+function ShadowXploit:KillAura()
+    -- Implement Kill Aura functionality here
+end
+
+function ShadowXploit:InstantKill(targetPlayer)
+    targetPlayer.Character.Humanoid.Health = 0
+end
+
+-- Game disruption functions
+function ShadowXploit:LagSwitch()
+    -- Implement Lag Switch functionality here
+end
+
+function ShadowXploit:BanHammer(targetPlayer)
+    -- Implement Ban Hammer functionality here
+end
+
+function ShadowXploit:CrashGame()
+    while true do end
+end
+
+-- Other fun features
+function ShadowXploit:ChatSpam(message)
+    while true do
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+        wait(1)
+    end
+end
+
+function ShadowXploit:InvisibleMode()
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.Transparency = 1
+    player.Character.HumanoidRootPart.CanCollide = false
+    for _, part in pairs(player.Character:GetChildren()) do
+        if part:IsA("BasePart") then
+            part.Transparency = 1
+            part.CanCollide = false
+        end
+    end
+end
+
+function ShadowXploit:NameStealer(targetPlayer)
+    local player = game.Players.LocalPlayer
+    player.Character.Name = targetPlayer.Name
+    player.Character.Humanoid.DisplayName = targetPlayer.DisplayName
+end
+
+return ShadowXploit
